@@ -1,8 +1,19 @@
-/* Copyright (c) 2020 MTHS All rights reserved
+/* Copyright (c) 2023 MTHS All rights reserved
  *
- * Created by: Mr. Coxall
- * Created on: Sep 2020
+ * Created by: Giordan Zeina
+ * Created on: Oct 2023
  * This program ...
 */
 
-basic.showString('Hello, World!')
+let distance:number = 0
+
+basic.showIcon(IconNames.Happy)
+
+input.onButtonPressed(Button.A, function () {
+  basic.clearScreen()
+  distance = sonar.ping(
+  DigitalPin.P1,
+  DigitalPin.P2,
+  PingUnit.Centimeters
+  )
+})
