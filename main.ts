@@ -17,3 +17,5 @@ input.onButtonPressed(Button.A, function () {
   PingUnit.Centimeters
   )
 })
+
+basic.showNumber(distance)
