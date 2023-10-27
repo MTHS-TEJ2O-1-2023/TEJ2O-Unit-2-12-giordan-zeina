@@ -6,7 +6,9 @@
 */
 
 let distance:number = 0
+let neopixelStrip: neopixel.Strip = null
 
+basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
 input.onButtonPressed(Button.A, function () {
@@ -16,6 +18,22 @@ input.onButtonPressed(Button.A, function () {
   DigitalPin.P2,
   PingUnit.Centimeters
   )
+  if (distance < 10) {
+    neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+    neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+    neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
+    neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
+    neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
+    neopixelStrip.show()
+    basic.showIcon(IconNames.Happy)
+    } else {
+    neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+    neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
+    neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+    neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
+    neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
+    neopixelStrip.show()
+    }
+    basic.showNumber(distance)
+    basic.showIcon(IconNames.Happy)
 })
-
-basic.showNumber(distance)
